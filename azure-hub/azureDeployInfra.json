@@ -195,7 +195,7 @@
     },
     
     "variables": {
-        "baseUrl"              : "https://raw.githubusercontent.com/jpeezus/TransitVNet2.0/master/azure-hub",
+        "baseUrl"              : "https://raw.githubusercontent.com/jpeezus/TransitVNet1.0/master/azure-hub",
         "deployStorageURL"     : "[concat(variables('baseUrl'),'/deployStorage.json')]",
         "deployNsgURL"         : "[concat(variables('baseUrl'),'/deployNsg.json')]",
         "deployVnetURL"        : "[concat(variables('baseUrl'),'/deployVnet.json')]",
@@ -423,8 +423,8 @@
                 "typeHandlerVersion": "2.0",
                 "settings": {
                     "fileUris": [
-                        "https://raw.githubusercontent.com/jpeezus/TransitVnet2.0/master/azure-hub/start.sh",
-                        "https://raw.githubusercontent.com/jpeezus/TransitVnet2.0/master/azure-hub/monitor.py"
+                        "https://raw.githubusercontent.com/jpeezus/TransitVnet1.0/master/azure-hub/start.sh",
+                        "https://raw.githubusercontent.com/jpeezus/TransitVnet1.0/master/azure-hub/monitor.py"
                     ],
                     "commandToExecute": "[concat('/bin/bash ./start.sh', variables('space'), parameters('subscriptionId'), variables('space'), parameters('appID'), variables('space'), parameters('appSecret'), variables('space'), parameters('TenantId'), variables('space'), parameters('panoramaIP'), variables('space'), parameters('panoramaApiKey'), variables('space'), parameters('licenseDeactivationKey'), variables('space'), variables('rgname'), variables('space'), variables('storageName'), variables('space'), '&')]"
                 }
