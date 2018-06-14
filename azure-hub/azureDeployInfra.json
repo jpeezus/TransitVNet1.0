@@ -191,7 +191,46 @@
             "metadata": {
                 "description": "API key to be programmed in the Panorama server so that license deactivation works"
             }
-        }
+        },
+		"bootstrap": {
+			"type": "string",
+			"defaultValue" : "yes",
+			"allowedValues": [
+				"yes",
+				"no"
+			],
+			"metadata": {
+				"description": "Bootstrap disk yes or no"
+			}
+		},
+		"BootstrapStorageAccount": {
+			"defaultValue": "",
+			"type": "String",
+			"metadata": {
+					"description": "Storage account hosting the bootstrap files"
+				}
+		},
+		"StorageAccountAccessKey": {
+			"defaultValue": "",
+			"type": "String",
+			"metadata": {
+					"description": "Authentication key to access the storage account"
+				}
+		},
+		"StorageAccountFileShare": {
+			"defaultValue": "",
+			"type": "String",
+			"metadata": {
+					"description": "The file share in the storage account where the bootstrap files are located"
+				}
+		},
+		"StorageAccountFileShareDirectory": {
+			"defaultValue": "",
+			"type": "String",
+			"metadata": {
+					"description": "The subdirectory hosting the bootstrap files. Only required if hosting multiple bootstrap directories on the same share"
+				}
+		}
     },
     
     "variables": {
@@ -220,6 +259,7 @@
         "worker-node-name": "[concat('worker-node',variables('namingInfix'))]",
         "avSetName": "[concat(variables('rgName'), '-outbound-avset')]",
         "firewallVmName": "[concat(variables('rgName'), '-outbound-vm-series-firewall')]",
+		"customDataField": "[concat('storage-account=', parameters('BootstrapStorageAccount'), ',access-key=', parameters('StorageAccountAccessKey'), ',file-share=', parameters('StorageAccountFileShare'),',share-directory=', parameters('StorageAccountFileShareDirectory'))]",
         "space": " "
     },
 
@@ -540,6 +580,12 @@
                     "adminPassword": {
                         "value": "[parameters('password')]"
                     },
+                    "customDataField": {
+                        "value": "[variables('customDataField')]"
+                    },
+					"bootstrap": {
+						"value": "[parameters('bootstrap')]"
+					},
                     "sshKey": {
                         "value": "[parameters('sshPublicKey')]"
                     }
