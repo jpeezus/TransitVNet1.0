@@ -354,9 +354,9 @@ class Azure:
                 self.managed_spokes.append(rg.name)
                 if rg.tags.get(self.RG_RULE_PROGRAMMED_TAG, 'Yes') == 'No':
                     self.new_spokes.append(rg.name)
-        self.logger.debug('%s identified as spokes managed by %s' % (rg.managed_spokes, rg.hub_name))
+        self.logger.debug('%s identified as spokes managed by %s' % (self.managed_spokes, self.hub_name))
         if self.new_spokes:
-            self.logger.info('%s identified as new spokes to be programmed by %s' % (rg.new_spokes, rg.hub_name))
+            self.logger.info('%s identified as new spokes to be programmed by %s' % (self.new_spokes, self.hub_name))
 
     
     def filter_vmss(self, spoke, vmss_name):
@@ -511,10 +511,10 @@ def main():
         # as <spoke_name> + '-dg'
         dg_name = panorama.get_dg_name_of_spoke(spoke) 
         if ilb_ip_addr:
-            logger.info('%s - NAT IP address for the ILB: ' % ilb_private_ip)
+            logger.info('%s - NAT IP address for the ILB: ' % ilb_ip_addr)
             ok, res = panorama.set_ilb_nat_address(dg_name, ilb_ip_addr)
             if not ok:
-                logger.error("Not able to set ILB NAT Address %s in DG %s" % (ilb_private_ip, dg_name))
+                logger.error("Not able to set ILB NAT Address %s in DG %s" % (ilb_ip_addr, dg_name))
                 logger.error("Error %s" % res)
                 continue
             count += 1
