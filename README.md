@@ -4,7 +4,7 @@
 
 # Azure Transit VNet with the VM-Series
 
-The Azure Transit VNet with the VM-Series deploys a hub and spoke architecture to centralize commonly used services such as security and secure connectivity. All traffic to and from the Spokes will “transit” the Hub VNet and will be protected by the VM-Series next generation firewall. To get started, the Hub VNet must be deployed first with the Spoke VNets being deployed subsequently. Once the Spoke is deployed, the VNets are dynamically peered to allow cross VNet communication. For more information on deployment please see the [Deployment Guide](https://github.com/Azure-Transit-VNet/blob/master/documentation/Azure_Transit_VNet0.1_Deployment_Guide.pdf).
+The Azure Transit VNet with the VM-Series deploys a hub and spoke architecture to centralize commonly used services such as security and secure connectivity. All traffic to and from the Spokes will “transit” the Hub VNet and will be protected by the VM-Series next generation firewall. To get started, the Hub VNet must be deployed first with the Spoke VNets being deployed subsequently. Once the Spoke is deployed, the VNets are dynamically peered to allow cross VNet communication. For more information on deployment please see the [Deployment Guide](https://github.com/jpeezus/TransitVNet1.0/blob/master/documentation/Azure_Transit_VNet0.1_Deployment_Guide.pdf).
 
 
 # Hub VNet
@@ -43,7 +43,7 @@ This topology consists of
 
 
 # Deployment guide
-The deployment guide can be found [here](https://github.com/Azure-Transit-VNet/blob/master/documentation/Azure_Transit_VNet0.1_Deployment_Guide.pdf)
+The deployment guide can be found [here](https://github.com/jpeezus/TransitVNet1.0/blob/master/documentation/Azure_Transit_VNet0.1_Deployment_Guide.pdf)
 
 
 # Support Policy: Community-Supported
